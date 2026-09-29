@@ -4,6 +4,7 @@ import {
   Download, FileText, ListTodo, Pencil, Plus, Search, StickyNote,
   Trash2, Upload, X,
 } from 'lucide-react'
+import { Analytics } from '@vercel/analytics/react'
 import {
   addTask, deleteTask, editTask, filterTasks, isDueToday, isOverdue, localDateKey, parseTasks,
   readTasks, saveTasks, sortByDueDate, type Task,
@@ -139,6 +140,7 @@ export default function App() {
       {notice && <div className="toast" role="status">{notice}<button aria-label="Dismiss message" onClick={() => setNotice('')}><X size={15} /></button></div>}
     </main>
     {editor && <TaskEditor task={editor === 'new' ? null : editor} onClose={() => setEditor(null)} onSave={saveEditor} />}
+    <Analytics />
   </div>
 }
 
